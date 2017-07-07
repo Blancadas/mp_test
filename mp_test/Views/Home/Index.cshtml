@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("GoOrder", "Home"))
+{
+    <div class="titleBackground">
+        <div class="inputZone">
+            <span class="orderTitle">Type your order</span>
+            <span class="orderDescription">Description</span>
+            <div class="input-group">
+                <input type="text"  name="orderTitle" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"  onclick="location.href = '@Url.Action("GoOrder", "Home")'">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+}

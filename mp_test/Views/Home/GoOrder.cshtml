@@ -1,0 +1,86 @@
+﻿@using System.ComponentModel
+@using mp_test.Models
+@model mp_test.Models.OrderModel
+
+@{
+    ViewBag.Title = "GoOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("SubmitOrder", "Home", FormMethod.Post))
+{
+    <div class="titleBackground">
+
+    </div>
+    <div class="createOrderZone">
+        <div class="createOrderHeader">
+            <span>Fill the Order form</span>
+        </div>
+        <div class="createOrderTitle">
+            <span>What do you need?</span>
+            <input type="text" name="orderTitle" class="form-control" placeholder="Type here..." value="@Model.orderTitle">
+            @*@Html.DropDownListFor(model => model.cathegoryId, new SelectList(@Model.orderCathegoryList,"Id","Title"), new { @class = "form-control serviceCathegorySelect" })*@
+
+            <select class="serviceCathegorySelect">
+                <option value=""> Please select a Cathegory </option>
+                @foreach (var cathegory in @Model.orderCathegoryList)
+                {
+                    <option value="@cathegory.Id">@cathegory.Title</option>
+                }
+            </select>
+
+            <select class="serviceTypeSelect">
+                <option value=""> Please select a Type </option>
+                @foreach (var type in @Model.orderTypeList)
+                {
+                    <option value="@type.Id" data-cathegoryId="@type.ServiceCathegory.Id">@type.Title</option>
+                }
+            </select>
+
+            @Html.TextAreaFor(model => model.orderDescription, new {@class = "form-control"})
+
+
+
+            @Html.TextBoxFor(m => m.uploadedFile, new { id = "fu-my-simple-upload", type = "file" })
+            <a href="#" id="hl-start-upload">Start upload</a>
+
+
+            <div class="form-group">
+                <div class='input-group date' id='orderDateTime'>
+                    <input type='text' class="form-control" value="@Model.OrderDateTime"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <div class='input-group date' id='orderDueDateTime'>
+                    <input type='text' class="form-control" value="@Model.OrderDueDateTime"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="addressBlock">
+                <span>Take from</span>
+                @Html.TextAreaFor(model => model.SourceAddress, new {@class = "form-control"})
+                <span>Deliver to</span>
+                @Html.TextAreaFor(model => model.DestinationAddress, new {@class = "form-control"})
+            </div>
+
+            <div class="contactInfoBlock">
+                <span>Contact info</span>
+                <input type="text" name="contactTitle" class="form-control" placeholder="Your name..." value="@Model.ContactTitle">
+                <input type="text" name="contactEmail" class="form-control" placeholder="Your contact E-Mail address..." value="@Model.ContactEmail">
+                <input type="text" name="contactPhoneNumber" class="form-control" placeholder="Your contact phone number..." value="@Model.ContactPhoneNumber">
+            </div>
+
+
+            <div class="submitBlock">
+                <button class="btn btn-default" type="submit">Send order!</button>
+            </div>
+
+
+        </div>
+
+    </div>
+}
