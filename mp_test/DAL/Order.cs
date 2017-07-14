@@ -25,7 +25,7 @@ namespace mp_test.DAL
         public string ContactEmail { get; set; }
         public string ContactPhoneNumber { get; set; }
         public decimal? OrderCost { get; set; }
-        public Currency OrderCurrency { get; set; }
+        public virtual Currency OrderCurrency { get; set; }
 
     }
 }

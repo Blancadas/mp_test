@@ -4,6 +4,7 @@ var jqXHRData;
 $(function () {
     $('.serviceCathegorySelect').select2();
     $('.serviceTypeSelect').select2();
+    $('.currencySelect').select2().select2("val", "1");
 
     if ($('#orderDateTime').length > 0 && $('#orderDueDateTime').length > 0) {
 

@@ -69,7 +69,15 @@ namespace mp_test.Controllers
                     newOrder.orderTypeList.Add(newType);
                 }
 
+                var currencyQuery = from currency in ctx.Currency
+                    orderby currency.Title
+                    select currency;
 
+                foreach (var currencyItem in currencyQuery)
+                {
+                    Currency newCurrency = new Currency(currencyItem.Id, currencyItem.Title);
+                    newOrder.currencyList.Add(newCurrency);
+                }
             }
 
             return View(newOrder);
@@ -98,7 +106,18 @@ namespace mp_test.Controllers
         [HttpPost]
         public ActionResult SubmitOrder(OrderModel order)
         {
-            return RedirectToAction("Index", "Orders");
+            if (ModelState.IsValid)
+            {
+                using (MPContext dbContext = new MPContext())
+                {
+                    dbContext.Order.Add(order.GetOrderInfo(dbContext));
+                    dbContext.SaveChanges();
+                }
+
+                return RedirectToAction("Index", "Orders");
+            }
+
+            return View("GoOrder", order);
         }
     }
 }

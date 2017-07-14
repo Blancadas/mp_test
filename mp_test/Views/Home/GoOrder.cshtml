@@ -19,9 +19,9 @@
         <div class="createOrderTitle">
             <span>What do you need?</span>
             <input type="text" name="orderTitle" class="form-control" placeholder="Type here..." value="@Model.orderTitle">
-            @*@Html.DropDownListFor(model => model.cathegoryId, new SelectList(@Model.orderCathegoryList,"Id","Title"), new { @class = "form-control serviceCathegorySelect" })*@
+            <div class="orderTitle validationMessage">@Html.ValidationMessageFor(model => model.orderTitle)</div>
 
-            <select class="serviceCathegorySelect">
+            <select name="cathegoryId" class="serviceCathegorySelect">
                 <option value=""> Please select a Cathegory </option>
                 @foreach (var cathegory in @Model.orderCathegoryList)
                 {
@@ -29,7 +29,7 @@
                 }
             </select>
 
-            <select class="serviceTypeSelect">
+            <select name="typeId" class="serviceTypeSelect">
                 <option value=""> Please select a Type </option>
                 @foreach (var type in @Model.orderTypeList)
                 {
@@ -37,7 +37,7 @@
                 }
             </select>
 
-            @Html.TextAreaFor(model => model.orderDescription, new {@class = "form-control"})
+            @Html.TextAreaFor(model => model.orderDescription, new { @class = "form-control" })
 
 
 
@@ -47,13 +47,13 @@
 
             <div class="form-group">
                 <div class='input-group date' id='orderDateTime'>
-                    <input type='text' class="form-control" value="@Model.OrderDateTime"/>
+                    <input type='text' name="OrderDateTime" class="form-control" value="@Model.orderDateTime" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
                 <div class='input-group date' id='orderDueDateTime'>
-                    <input type='text' class="form-control" value="@Model.OrderDueDateTime"/>
+                    <input type='text' name="OrderDueDateTime" class="form-control" value="@Model.orderDueDateTime" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -62,16 +62,32 @@
 
             <div class="addressBlock">
                 <span>Take from</span>
-                @Html.TextAreaFor(model => model.SourceAddress, new {@class = "form-control"})
+                @Html.TextAreaFor(model => model.sourceAddress, new { @class = "form-control" })
                 <span>Deliver to</span>
-                @Html.TextAreaFor(model => model.DestinationAddress, new {@class = "form-control"})
+                @Html.TextAreaFor(model => model.destinationAddress, new { @class = "form-control" })
+            </div>
+
+            <div class="costBlock">
+                <span class="priceSpan">Your price</span>
+                <div class="priceDefinition">
+                    @Html.TextBoxFor(model => model.orderCost, new { @class = "form-control orderCost" })
+
+                    <select name="currencyId" class="currencySelect">
+                        <option value=""> Please select a Currency </option>
+                        @foreach (var currency in @Model.currencyList)
+                        {
+                            <option value="@currency.Id" data-cathegoryId="@currency.Id">@currency.Title</option>
+                        }
+                    </select>
+                </div>
+
             </div>
 
             <div class="contactInfoBlock">
                 <span>Contact info</span>
-                <input type="text" name="contactTitle" class="form-control" placeholder="Your name..." value="@Model.ContactTitle">
-                <input type="text" name="contactEmail" class="form-control" placeholder="Your contact E-Mail address..." value="@Model.ContactEmail">
-                <input type="text" name="contactPhoneNumber" class="form-control" placeholder="Your contact phone number..." value="@Model.ContactPhoneNumber">
+                <input type="text" name="contactTitle" class="form-control" placeholder="Your name..." value="@Model.contactTitle">
+                <input type="text" name="contactEmail" class="form-control" placeholder="Your contact E-Mail address..." value="@Model.contactEmail">
+                <input type="text" name="contactPhoneNumber" class="form-control" placeholder="Your contact phone number..." value="@Model.contactPhoneNumber">
             </div>
 
 

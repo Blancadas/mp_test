@@ -37,8 +37,17 @@ namespace mp_test
                       "~/Content/select2.min.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/bundles/Init").Include(
+            bundles.Add(new StyleBundle("~/Content/datatables").Include(
+                "~/Content/datatables.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/datatables").Include(
+                "~/Scripts/datatables.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Init").Include(
                 "~/Scripts/Init.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/OrderList").Include(
+                "~/Scripts/OrderList.js"));
         }
     }
 }

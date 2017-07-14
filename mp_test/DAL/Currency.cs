@@ -9,5 +9,16 @@ namespace mp_test.DAL
     {
         public int Id { get; set; }
         public string Title { get; set; }
+
+        public Currency()
+        {
+            
+        }
+
+        public Currency(int id, string title)
+        {
+            Id = id;
+            Title = title;
+        }
     }
 }

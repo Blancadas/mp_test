@@ -27,3 +27,27 @@
     max-width: 500px;
     margin: auto;
 }
+
+.priceDefinition {
+    display: inline-block;
+}
+.orderCost {
+    width: 400px;
+    float: left;
+}
+
+.currencySelect {
+    width: 70px;
+    height: 34px;
+    float: left;
+}
+
+.select2-selection, .select2-selection__arrow {
+    height: 34px !important;
+}
+.select2-selection__rendered {
+    line-height: 34px !important;
+}
+.priceSpan {
+    float: left;
+}

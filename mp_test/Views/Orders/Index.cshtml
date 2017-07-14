@@ -1,8 +1,43 @@
-﻿
+﻿@model mp_test.Models.OrderListModel
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Orders";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@Styles.Render("~/Content/datatables")
 
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/OrderList")
+}
+
+<h2>Orders</h2>
+
+
+<table class="orderListTable">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Price</th>
+            <th>Apply</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in @Model.Orders)
+        {
+            <tr>
+                <td>@order.ServiceType.Title</td>
+                <td>@order.Title</td>
+                <td>@order.Description</td>
+                <td>@order.DestinationAddress</td>
+                <td>@order.OrderCost @order.OrderCurrency.Title</td>
+                <td><span>Take this</span></td>
+            </tr>
+        }
+    </tbody>
+</table>

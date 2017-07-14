@@ -21,6 +21,6 @@ namespace mp_test.DAL
 
         public int Id { get; set; }
         public string Title { get; set; }
-        public ServiceCathegory ServiceCathegory { get; set; }
+        public virtual ServiceCathegory ServiceCathegory { get; set; }
     }
 }
