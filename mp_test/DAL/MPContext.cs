@@ -29,5 +29,8 @@ namespace mp_test.DAL
         public DbSet<ServiceTracking> ServiceTracking { get; set; }
         public DbSet<ServiceType> ServiceType { get; set; }
         public DbSet<ServiceCathegory> ServiceCathegory { get;set; }
+        public DbSet<Offer> Offer { get; set; }
+        public DbSet<OfferStatus> OfferStatuse { get; set; }
+        public DbSet<OfferTracking> OfferTracking { get; set; }
     }
 }

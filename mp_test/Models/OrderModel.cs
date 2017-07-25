@@ -15,10 +15,14 @@ namespace mp_test.Models
             orderTypeList = new List<ServiceType>();
             currencyList = new List<Currency>();
         }
+
+        public int orderId { get; set; }
+
         [Required]
         [Display(Name = "Order title")]
         public string orderTitle { get; set; }
         public int cathegoryId { get; set; }
+        public string cathegoryTitle { get; set; }
         public int typeId { get; set; }
         public List<ServiceCathegory> orderCathegoryList { get; set; }
         public List<ServiceType> orderTypeList { get; set; }

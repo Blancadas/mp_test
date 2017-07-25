@@ -191,12 +191,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="DAL\Currency.cs" />
     <Compile Include="DAL\Customer.cs" />
     <Compile Include="DAL\Executor.cs" />
     <Compile Include="DAL\MPContext.cs" />
+    <Compile Include="DAL\Offer.cs" />
+    <Compile Include="DAL\OfferStatus.cs" />
+    <Compile Include="DAL\OfferTracking.cs" />
     <Compile Include="DAL\Order.cs" />
     <Compile Include="DAL\OrderStatus.cs" />
     <Compile Include="DAL\OrderTracking.cs" />
@@ -224,10 +228,19 @@
     <Compile Include="Migrations\201707051117055_OrderCost.Designer.cs">
       <DependentUpon>201707051117055_OrderCost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707211220534_IdToGuid.cs" />
+    <Compile Include="Migrations\201707211220534_IdToGuid.Designer.cs">
+      <DependentUpon>201707211220534_IdToGuid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707241133042_Offers.cs" />
+    <Compile Include="Migrations\201707241133042_Offers.Designer.cs">
+      <DependentUpon>201707241133042_Offers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OfferModel.cs" />
     <Compile Include="Models\OrderListModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,9 +321,12 @@
     <Content Include="Views\Home\GoOrder.cshtml" />
     <Content Include="Views\Orders\MyOrders.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\Order.cshtml" />
+    <Content Include="Views\Offer\CreateOffer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Offers\" />
     <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
@@ -337,6 +353,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707051117055_OrderCost.resx">
       <DependentUpon>201707051117055_OrderCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707211220534_IdToGuid.resx">
+      <DependentUpon>201707211220534_IdToGuid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707241133042_Offers.resx">
+      <DependentUpon>201707241133042_Offers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

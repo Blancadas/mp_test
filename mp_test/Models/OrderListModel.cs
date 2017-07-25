@@ -14,4 +14,13 @@ namespace mp_test.Models
         }
         public List<Order> Orders { get; set; }
     }
+
+    public class OrderWithOffersListModel
+    {
+        public OrderWithOffersListModel()
+        {
+            Orders = new List<OrderWithOffers>();
+        }
+        public List<OrderWithOffers> Orders { get; set; }
+    }
 }

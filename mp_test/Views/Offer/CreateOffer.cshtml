@@ -1,0 +1,15 @@
+﻿@model mp_test.Models.OfferModel
+
+@{
+    ViewBag.Title = "Create Offer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("TakeOrder", "Orders", new { Id = @Model.order.orderId }, FormMethod.Post))
+{
+    <h2>New Offer</h2>
+
+    @Html.TextAreaFor(model => model.description, new {@class = "form-control"})
+
+    <button class="btn btn-default" type="submit">Send this offer</button>
+}

@@ -1,9 +1,39 @@
-﻿@Styles.Render("~/bundles/datatables")
-@Scripts.Render("~/bundles/datatables")
+﻿@model mp_test.Models.OrderWithOffersListModel
+
+@Styles.Render("~/bundles/datatables")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables")
+}
+
 @{
     ViewBag.Title = "MyOrders";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MyOrders</h2>
+<h2>My Orders</h2>
 
+<table class="myOrderListTable">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Offers</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in @Model.Orders)
+        {
+            <tr>
+                <td>@order.ServiceType.Title</td>
+                <td>@order.Title</td>
+                <td>@order.Description</td>
+                <td>@order.DestinationAddress</td>
+                <td>@order.OrderCost @order.OrderCurrency.Title</td>
+                <td><a href="@Url.Action("ShowMyOrders", "Orders", new { id=@order.Id})">Take this</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

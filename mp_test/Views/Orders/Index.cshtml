@@ -36,7 +36,7 @@
                 <td>@order.Description</td>
                 <td>@order.DestinationAddress</td>
                 <td>@order.OrderCost @order.OrderCurrency.Title</td>
-                <td><span>Take this</span></td>
+                <td><a href="@Url.Action("ShowOrder", "Orders", new { id=@order.Id})">Take this</a></td>
             </tr>
         }
     </tbody>

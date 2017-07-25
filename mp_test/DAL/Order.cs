@@ -28,4 +28,13 @@ namespace mp_test.DAL
         public virtual Currency OrderCurrency { get; set; }
 
     }
+
+    public class OrderWithOffers : Order
+    {
+        public OrderWithOffers()
+        {
+            Offers = new List<Offer>();
+        }
+        public List<Offer> Offers { get; set; }
+    }
 }
