@@ -236,6 +236,14 @@
     <Compile Include="Migrations\201707241133042_Offers.Designer.cs">
       <DependentUpon>201707241133042_Offers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708071018425_discriminator issue.cs" />
+    <Compile Include="Migrations\201708071018425_discriminator issue.Designer.cs">
+      <DependentUpon>201708071018425_discriminator issue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708071027409_RemoveDiscriminator.cs" />
+    <Compile Include="Migrations\201708071027409_RemoveDiscriminator.Designer.cs">
+      <DependentUpon>201708071027409_RemoveDiscriminator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -359,6 +367,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707241133042_Offers.resx">
       <DependentUpon>201707241133042_Offers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708071018425_discriminator issue.resx">
+      <DependentUpon>201708071018425_discriminator issue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708071027409_RemoveDiscriminator.resx">
+      <DependentUpon>201708071027409_RemoveDiscriminator.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

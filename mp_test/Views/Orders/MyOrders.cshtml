@@ -4,6 +4,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/OrderList")
 }
 
 @{
@@ -30,9 +31,8 @@
                 <td>@order.ServiceType.Title</td>
                 <td>@order.Title</td>
                 <td>@order.Description</td>
-                <td>@order.DestinationAddress</td>
                 <td>@order.OrderCost @order.OrderCurrency.Title</td>
-                <td><a href="@Url.Action("ShowMyOrders", "Orders", new { id=@order.Id})">Take this</a></td>
+                <td>Offers: @order.Offers.Count</td>
             </tr>
         }
     </tbody>

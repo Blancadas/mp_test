@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+
 using mp_test.DAL;
 using mp_test.Models;
 
@@ -108,13 +110,33 @@ namespace mp_test.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (MPContext dbContext = new MPContext())
+              using (MPContext dbContext = new MPContext())
+              {
+                var currentUserId = User.Identity.GetUserId();
+
+                var currentCustomer = dbContext.Customer.Include("OrderList").FirstOrDefault(cust => cust.UserId == currentUserId);
+
+                var newOrder = order.GetOrderInfo(dbContext);
+                dbContext.Order.Add(newOrder);
+
+                if (currentCustomer == null)
                 {
-                    dbContext.Order.Add(order.GetOrderInfo(dbContext));
-                    dbContext.SaveChanges();
+                  Customer newCustomer = new Customer();
+                  newCustomer.UserId = currentUserId;
+                  newCustomer.Title = User.Identity.Name;
+                  newCustomer.OrderList.Add(newOrder);
+                  dbContext.Customer.Add(newCustomer);
+                }
+                else
+                {
+                  currentCustomer.OrderList.Add(newOrder);
                 }
 
-                return RedirectToAction("Index", "Orders");
+                dbContext.SaveChanges();
+
+              }
+
+              return RedirectToAction("Index", "Orders");
             }
 
             return View("GoOrder", order);

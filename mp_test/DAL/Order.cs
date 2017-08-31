@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -29,6 +30,7 @@ namespace mp_test.DAL
 
     }
 
+    [NotMapped]
     public class OrderWithOffers : Order
     {
         public OrderWithOffers()
