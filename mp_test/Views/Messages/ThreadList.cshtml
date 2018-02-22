@@ -1,0 +1,16 @@
+﻿@model mp_test.Models.ThreadModel
+@{
+    ViewBag.Title = "ThreadList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ThreadList</h2>
+
+@foreach (var thread in Model.ThreadList)
+{
+    <div class="thread">
+        <div class="thread-author">@thread.AuthorTitle</div>
+        <div class="thread-datetime">@thread.LastMessageDateTime</div>
+        <div class="thread-lastmessage">@thread.LastMessageText</div>
+    </div>
+}

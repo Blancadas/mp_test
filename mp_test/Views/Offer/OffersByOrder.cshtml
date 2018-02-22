@@ -1,0 +1,55 @@
+﻿@model mp_test.Models.OfferListModel
+
+@{
+    ViewBag.Title = "OffersByOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/datatables")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/OfferList")
+}
+
+
+<h2>Current Offers</h2>
+
+<div class="order-body">
+
+        <span class="order-body-header">Title</span>
+        <span class="order-body-value">@Model.order.Title</span>
+
+        <span class="order-body-header">Take from</span>
+        <span class="order-body-value">@Model.order.SourceAddress</span>
+
+        <span class="order-body-header">Deliver to</span>
+        <span class="order-body-value">@Model.order.DestinationAddress</span>
+
+        <span class="order-body-header">Cost</span>
+        <span class="order-body-value">@Model.order.OrderCost @Model.order.OrderCurrency</span>
+
+        <span class="order-body-header">Deliver due</span>
+        <span class="order-body-value">@Model.order.OrderDueDateTime</span>
+
+</div>
+
+<table class="offerListTable">
+    <thead>
+    <tr>
+        <th>Executor</th>
+        <th>Description</th>
+        <th>Accept</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var offer in @Model.offers)
+    {
+        <tr>
+            <td>@offer.executor.Title <a href="@Url.Action("Conversation", "Messages", new { executorId=@offer.executor.Id, offerId=@offer.Id })">Start conversation</a></td>
+            <td>@offer.description</td>
+            <td><a href="@Url.Action("OfferAcceptanceForm", "Offer", new { offerId=@offer.Id})">Accept</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

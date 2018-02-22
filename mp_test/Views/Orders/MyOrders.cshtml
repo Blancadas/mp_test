@@ -1,6 +1,6 @@
 ﻿@model mp_test.Models.OrderWithOffersListModel
 
-@Styles.Render("~/bundles/datatables")
+@Styles.Render("~/Content/datatables")
 
 @section Scripts {
     @Scripts.Render("~/bundles/datatables")
@@ -32,7 +32,7 @@
                 <td>@order.Title</td>
                 <td>@order.Description</td>
                 <td>@order.OrderCost @order.OrderCurrency.Title</td>
-                <td>Offers: @order.Offers.Count</td>
+                <td><a href="@Url.Action("OffersByOrder", "Offer", new { orderId=@order.Id})">Offers: @order.Offers.Count</a></td>
             </tr>
         }
     </tbody>

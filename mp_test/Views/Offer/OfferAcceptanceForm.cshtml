@@ -1,0 +1,19 @@
+﻿@model mp_test.Models.OfferModel
+
+@{
+    ViewBag.Title = "OfferAcceptanceForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Offer Acceptance Form</h2>
+@using (Html.BeginForm("AcceptOffer", "Offer", new {Id = @Model.order.orderId}, FormMethod.Post))
+{
+    <div class="executorPhoto"><img src="">
+    </div>
+    <div class="executorName">@Model.executor.Title</div>
+    <div class="executorDescription">@Model.description</div>
+    <div class="orderStat">Orders done @ViewBag.ordersDone</div>
+    <div class="executorRating">Rating @Model.executor.Rating</div>
+
+    <button class="btn btn-default" type="submit">Accept offer</button>
+}

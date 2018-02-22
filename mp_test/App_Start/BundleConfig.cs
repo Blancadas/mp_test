@@ -48,6 +48,12 @@ namespace mp_test
 
             bundles.Add(new ScriptBundle("~/bundles/OrderList").Include(
                 "~/Scripts/OrderList.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/OfferList").Include(
+              "~/Scripts/OfferList.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Conversation").Include(
+                "~/Scripts/Conversation.js"));
         }
     }
 }

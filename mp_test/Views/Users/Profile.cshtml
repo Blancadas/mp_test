@@ -1,0 +1,18 @@
+﻿@model mp_test.Models.UserProfileModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Profile</h2>
+
+    <div class="executorPhoto">
+        <img src="">
+    </div>
+    <div class="executorName">@Model.executor.Title</div>
+    <div class="executorDescription">@Model.executor.Description</div>
+    <div class="orderStat">Orders done @ViewBag.ordersDone</div>
+    <div class="executorRating">Rating @Model.executor.Rating</div>
+
+    <button class="btn btn-default" type="submit">Send a message</button>

@@ -99,7 +99,7 @@ namespace mp_test.Controllers
 
                 var curExecutor = dbContext.Executor.FirstOrDefault(ex => ex.UserId == currentUserId);
 
-                var newCreatedStatus = dbContext.OfferStatuse.FirstOrDefault(s => s.Title == "Created");
+                var newCreatedStatus = dbContext.OfferStatus.FirstOrDefault(s => s.Title == "Created");
 
                 string descriptionText = form["description"];
 

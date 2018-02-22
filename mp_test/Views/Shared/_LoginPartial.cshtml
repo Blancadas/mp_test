@@ -10,6 +10,7 @@
             @if (Context.User.Identity.IsAuthenticated)
             {
                 <li>@Html.ActionLink("My orders", "ShowMyOrders", "Orders")</li>
+                <li>@Html.ActionLink("Messages", "Index", "Messages")</li>
             } 
             <li>
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})

@@ -1,0 +1,27 @@
+﻿@model mp_test.Models.ThreadEntity
+
+@{
+    ViewBag.Title = "Conversation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/Conversation")
+}
+
+<h2>Conversation</h2>
+
+        
+<p>
+    <input type="hidden" id="threadId" value="" />
+    <input type="hidden" id="newmessage_username" value="@Model.AuthorTitle"/>
+    Message<br/>
+    <input type="text" id="newmessage_messagebody" size="70"/>
+    <input type="button" value="Send" id="newmessage_sendbutton" onclick="sendNewMessage(@Model.OfferId, @Model.AuthorId, @Model.ExecutorId)"/>
+</p>
+
+    <h2>Chat</h2>
+    <h4 id="message"></h4>
+    <div id="chatarea">
+    </div>
+

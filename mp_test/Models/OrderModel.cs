@@ -53,7 +53,7 @@ namespace mp_test.Models
             newOrder.OrderDateTime = orderDateTime;
             newOrder.OrderDueDateTime = orderDueDateTime;
 
-            //                ServiceCathegory selectedCathegory = mpContext.ServiceCathegory.Single(c => c.Id == cathegoryId);
+            //ServiceCathegory selectedCathegory = mpContext.ServiceCathegory.Single(c => c.Id == cathegoryId);
             ServiceType selectedType = mpContext.ServiceType.First(c => c.Id == typeId);
 
             //mpContext.ServiceType.Attach(selectedType);

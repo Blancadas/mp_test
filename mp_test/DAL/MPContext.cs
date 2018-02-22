@@ -30,7 +30,9 @@ namespace mp_test.DAL
         public DbSet<ServiceType> ServiceType { get; set; }
         public DbSet<ServiceCathegory> ServiceCathegory { get;set; }
         public DbSet<Offer> Offer { get; set; }
-        public DbSet<OfferStatus> OfferStatuse { get; set; }
+        public DbSet<OfferStatus> OfferStatus { get; set; }
         public DbSet<OfferTracking> OfferTracking { get; set; }
-    }
+        public DbSet<Message> Message { get; set; }
+        public DbSet<Thread> Thread { get; set; }
+  }
 }
