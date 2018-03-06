@@ -1,14 +1,15 @@
 ﻿$(document).ready(function () {
     $("#message").html("Waiting for update...");
+    var threadId = $("#threadId").val();
     var refreshId = setInterval(
-        "updateChatArea()",
+        "updateChatArea(threadId)",
         5000);
 });
 
-function updateChatArea() {
+function updateChatArea(threadId) {
     $.getJSON(
         "/Messages/GetMessages/",
-        null,
+        { threadId: threadId },
         function (data) {
             $("#message").html += "Fetching...";
             $("#chatarea").html("");
@@ -27,8 +28,7 @@ function updateChatArea() {
             else {
                 $("#chatarea").html("<p>No Messages</p>");
             }
-        });
-    $("#message").html("Messages loaded.");
+        }).done(function (data) { $("#message").html("Messages loaded."); });
 }
 
 function sendNewMessage(offerId, authorId, recepientId) {
@@ -45,5 +45,5 @@ function sendNewMessage(offerId, authorId, recepientId) {
         }
     );
     $("#newmessage_messagebody").val("");
-    updateChatArea();
+    updateChatArea($("#threadId").val());
 }

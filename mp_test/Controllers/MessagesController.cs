@@ -81,13 +81,13 @@ namespace mp_test.Controllers
             return View("Conversation", currentThread);
         }
 
-        public JsonResult GetMessages(string executorId, int offerId)
+        public JsonResult GetMessages(int threadId)
         {
             var result = new LinkedList<object>();
 
             using (var ctx = new MPContext())
             {
-                List<Message> messages = ctx.Message.Where(m => m.Thread.RecepientId == executorId && m.Thread.Offer.Id == offerId).OrderBy(m => m.CreatedDateTime).ToList();
+                List<Message> messages = ctx.Message.Where(m => m.Thread.Id == threadId).OrderBy(m => m.CreatedDateTime).ToList();
 
                 foreach (var message in messages)
                 {
